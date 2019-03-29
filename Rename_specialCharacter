@@ -1,0 +1,13 @@
+    $options = @('/e', '/MT:128', '/LOG:C:\Users\mfoertsch01\Desktop\Log.txt')
+    Get-ChildItem 'D:\ww1' |
+
+    ForEach-Object {
+        $newname = ($_.BaseName -Replace '[^\x20-\x5D,\x60-\x7E]+', '-')
+        if (($_.GetType()).Name -eq "DirectoryInfo"){
+            write-host ""
+            write-host "////////////************\\\\\\\\\\\\"
+            write-host $_.BaseName
+            write-host $newname
+            robocopy.exe "D:\ww1\$($_.BaseName)" "F:\ww1\$newname" $options
+        }
+    }
