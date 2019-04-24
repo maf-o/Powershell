@@ -1,0 +1,4 @@
+Enable-WindowsOptionalFeature -Online -FeatureName smb1protocol
+need restart
+
+Disable-WindowsOptionalFeature -Online -FeatureName smb1protocol
